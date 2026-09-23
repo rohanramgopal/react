@@ -1,102 +1,115 @@
-import UserCard from "./UserCard";
+import { useState } from "react";
+import Login from "./components/Login";
+import Home from "./components/Home";
 import "./App.css";
 
-function App() {
+export default function App() {
 
-    const user1 = {
-        name: "Rohan",
-        city: "Bengaluru",
-        age: 23,
-        email: "rohan@gmail.com",
-        phone: "9876543210"
-    };
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const user2 = {
-        name: "Tushar",
-        city: "Bengaluru",
-        age: 24,
-        email: "tushar@gmail.com",
-        phone: "9876543211"
-    };
+    const users = [
+        {
+            id: 1,
+            name: "Rohan",
+            email: "rohan@gmail.com",
+            age: 23,
+            city: "Bengaluru",
+            role: "Full Stack Developer"
+        },
+        {
+            id: 2,
+            name: "Rahul",
+            email: "rahul@gmail.com",
+            age: 24,
+            city: "Mumbai",
+            role: "Frontend Developer"
+        },
+        {
+            id: 3,
+            name: "Ananya",
+            email: "ananya@gmail.com",
+            age: 22,
+            city: "Delhi",
+            role: "UI/UX Designer"
+        },
+        {
+            id: 4,
+            name: "Priya",
+            email: "priya@gmail.com",
+            age: 25,
+            city: "Chennai",
+            role: "Backend Developer"
+        },
+        {
+            id: 5,
+            name: "Arjun",
+            email: "arjun@gmail.com",
+            age: 23,
+            city: "Hyderabad",
+            role: "Software Engineer"
+        }
+    ];
 
-    const user3 = {
-        name: "Sujan",
-        city: "Bengaluru",
-        age: 22,
-        email: "sujan@gmail.com",
-        phone: "9876543212"
-    };
-
-    const user4 = {
-        name: "Rahul",
-        city: "Chennai",
-        age: 25,
-        email: "rahul@gmail.com",
-        phone: "9876543213"
-    };
-
-    const user5 = {
-        name: "Sudhakaran",
-        city: "Mumbai",
-        age: 23,
-        email: "sudhakaran@gmail.com",
-        phone: "9876543214"
-    };
+    function handleLoginLogout() {
+        setIsLoggedIn(!isLoggedIn);
+    }
 
     return (
         <div className="app">
 
-            <div className="heading">
-                <h1>User Profiles</h1>
-    
+            <div className="header">
+                <h1>User Dashboard</h1>
+
             </div>
 
-            <div className="user-container">
+            <div className="login-section">
 
-                <UserCard
-                    name={user1.name}
-                    city={user1.city}
-                    age={user1.age}
-                    email={user1.email}
-                    phone={user1.phone}
-                />
+                {isLoggedIn ? <Home /> : <Login />}
 
-                <UserCard
-                    name={user2.name}
-                    city={user2.city}
-                    age={user2.age}
-                    email={user2.email}
-                    phone={user2.phone}
-                />
+                <button onClick={handleLoginLogout}>
+                    {isLoggedIn ? "Logout" : "Login"}
+                </button>
 
-                <UserCard
-                    name={user3.name}
-                    city={user3.city}
-                    age={user3.age}
-                    email={user3.email}
-                    phone={user3.phone}
-                />
+            </div>
 
-                <UserCard
-                    name={user4.name}
-                    city={user4.city}
-                    age={user4.age}
-                    email={user4.email}
-                    phone={user4.phone}
-                />
+            <div className="users-section">
 
-                <UserCard
-                    name={user5.name}
-                    city={user5.city}
-                    age={user5.age}
-                    email={user5.email}
-                    phone={user5.phone}
-                />
+                <h2>User Details</h2>
+
+                <div className="user-container">
+
+                    {users.map((user) => (
+                        <div className="user-card" key={user.id}>
+
+                            <div className="user-image">
+                                {user.name.charAt(0)}
+                            </div>
+
+                            <h3>{user.name}</h3>
+
+                            <p>
+                                <span>Email:</span> {user.email}
+                            </p>
+
+                            <p>
+                                <span>Age:</span> {user.age}
+                            </p>
+
+                            <p>
+                                <span>City:</span> {user.city}
+                            </p>
+
+                            <p>
+                                <span>Role:</span> {user.role}
+                            </p>
+
+                        </div>
+                    ))}
+
+                </div>
 
             </div>
 
         </div>
     );
 }
-
-export default App;

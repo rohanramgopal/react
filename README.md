@@ -1,19 +1,90 @@
-# React + Vite
+# Rohan's React Learning Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+### A small React project for learning by building
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=111827)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Lint](https://img.shields.io/badge/code_style-ESLint-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/)
 
-## React Compiler
+</div>
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## About the Project
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+This project combines a personal introduction with a simple user dashboard. It is a practical space to learn React fundamentals, experiment with component structure, and see how state changes the interface.
 
-## Expanding the ESLint configuration
+## Learning Log
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Yesterday: React foundations
+
+| Concept | What I learned | Where it appears |
+| --- | --- | --- |
+| Components | Split the UI into reusable pieces instead of keeping everything in one file. | `App`, `Home`, `Login`, `SelfIntroduction`, `UserCard` |
+| JSX | Describe UI with JavaScript expressions and HTML-like syntax. | Dashboard headings, profile sections, and cards |
+| Props | Pass data and behavior between parent and child components. | Login and home views rendered by `App` |
+| Project structure | Organize source files, styles, assets, and entry points in a Vite app. | `src/`, `public/`, `main.jsx` |
+
+### Today: Interactive UI and data rendering
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| `useState` | Track whether the user is logged in. | React can respond to user interaction without a full page refresh. |
+| Event handling | Toggle the login state from a button click. | User actions can update application data. |
+| Conditional rendering | Show `Home` or `Login` based on the current state. | The UI reflects the current application state. |
+| Array rendering | Create user cards from a `users` array with `.map()`. | Repeated UI stays data-driven and easy to extend. |
+| `key` props | Give each rendered user card a stable `user.id`. | React can efficiently track list items. |
+| Component styling | Connect class names to focused CSS styles. | Structure and visual design stay readable and maintainable. |
+
+## Concepts Demonstrated
+
+```text
+User action
+	-> event handler
+	-> state update
+	-> React re-render
+	-> conditional view / updated list
+```
+
+- **State:** `isLoggedIn` controls the authentication view.
+- **Data:** the `users` array is the single source for dashboard cards.
+- **Composition:** `App` coordinates smaller UI components.
+- **Declarative UI:** JSX describes what should appear for the current state.
+- **Separation of concerns:** JavaScript handles behavior while CSS handles presentation.
+
+## Tech Stack
+
+| Tool | Purpose |
+| --- | --- |
+| React 19 | Build the interactive interface |
+| Vite | Fast development server and production bundling |
+| JavaScript | Application logic and data handling |
+| CSS | Layout, colors, cards, and responsive styling |
+| ESLint | Catch common JavaScript and React issues |
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite in your browser.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run lint` | Run ESLint checks |
+| `npm run preview` | Preview the production build locally |
+
+## Next Learning Goals
+
+- Connect the login form to controlled inputs.
+- Move the user data into a dedicated data module or API.
+- Add search and filtering to the dashboard.
+- Improve accessibility with semantic landmarks and labels.
+- Add tests for login state and user list rendering.
