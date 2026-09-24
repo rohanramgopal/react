@@ -17,7 +17,7 @@ This project combines a personal introduction with a simple user dashboard. It i
 
 ## Learning Log
 
-### Yesterday: React foundations
+### September 22, 2026: React foundations
 
 | Concept | What I learned | Where it appears |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ This project combines a personal introduction with a simple user dashboard. It i
 | Props | Pass data and behavior between parent and child components. | Login and home views rendered by `App` |
 | Project structure | Organize source files, styles, assets, and entry points in a Vite app. | `src/`, `public/`, `main.jsx` |
 
-### Today: Interactive UI and data rendering
+### September 23, 2026: Interactive UI and data rendering
 
 | Concept | What I practiced | Why it matters |
 | --- | --- | --- |
@@ -36,6 +36,16 @@ This project combines a personal introduction with a simple user dashboard. It i
 | Array rendering | Create user cards from a `users` array with `.map()`. | Repeated UI stays data-driven and easy to extend. |
 | `key` props | Give each rendered user card a stable `user.id`. | React can efficiently track list items. |
 | Component styling | Connect class names to focused CSS styles. | Structure and visual design stay readable and maintainable. |
+
+### September 24, 2026: State management and themes
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| Local state | Use `useState` to store the counter value and theme mode. | Components can own data that changes during interaction. |
+| State updates | Increment, decrement, and reset a counter from button events. | Small state transitions can be composed into a useful workflow. |
+| Shared state | Keep `dark` in `App` and pass it to `ThemeToggle` and `Counter`. | Multiple components can stay synchronized through a common parent. |
+| Inline styles | Change background and text colors from the current theme state. | The interface can respond immediately to user preferences. |
+| Component reuse | Extract the counter and theme switcher into `src/components/`. | Focused components are easier to understand and extend. |
 
 ## Concepts Demonstrated
 
