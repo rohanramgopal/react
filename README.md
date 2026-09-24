@@ -17,7 +17,7 @@ This project combines a personal introduction with a simple user dashboard. It i
 
 ## Learning Log
 
-### September 22, 2026: React foundations
+### Day 1: React foundations
 
 | Concept | What I learned | Where it appears |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ This project combines a personal introduction with a simple user dashboard. It i
 | Props | Pass data and behavior between parent and child components. | Login and home views rendered by `App` |
 | Project structure | Organize source files, styles, assets, and entry points in a Vite app. | `src/`, `public/`, `main.jsx` |
 
-### September 23, 2026: Interactive UI and data rendering
+### Day 2: Interactive UI and data rendering
 
 | Concept | What I practiced | Why it matters |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ This project combines a personal introduction with a simple user dashboard. It i
 | `key` props | Give each rendered user card a stable `user.id`. | React can efficiently track list items. |
 | Component styling | Connect class names to focused CSS styles. | Structure and visual design stay readable and maintainable. |
 
-### September 24, 2026: State management and themes
+### Day 3: State management and themes
 
 | Concept | What I practiced | Why it matters |
 | --- | --- | --- |
