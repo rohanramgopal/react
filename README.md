@@ -47,6 +47,16 @@ This project combines a personal introduction with a simple user dashboard. It i
 | Inline styles | Change background and text colors from the current theme state. | The interface can respond immediately to user preferences. |
 | Component reuse | Extract the counter and theme switcher into `src/components/`. | Focused components are easier to understand and extend. |
 
+### Day 4: Forms and validation
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| Controlled inputs | Keep each registration field connected to React state. | React stays in sync with what the user types. |
+| Form events | Handle changes, submission, and reset actions in `RegistrationForm`. | Forms can respond predictably without a page reload. |
+| Validation | Check that required fields are complete before submitting. | Users receive immediate feedback about incomplete data. |
+| Conditional rendering | Show an error message or submitted details only when needed. | The interface reflects the current form state. |
+| Form component structure | Keep registration behavior in `src/components/RegistrationForm.jsx`. | A focused component is easier to test and reuse. |
+
 ## Concepts Demonstrated
 
 ```text
@@ -62,6 +72,7 @@ User action
 - **Composition:** `App` coordinates smaller UI components.
 - **Declarative UI:** JSX describes what should appear for the current state.
 - **Separation of concerns:** JavaScript handles behavior while CSS handles presentation.
+- **Controlled forms:** `RegistrationForm` stores field values, validates submissions, and resets the form with React state.
 
 ## Tech Stack
 
@@ -93,8 +104,9 @@ Open the local URL printed by Vite in your browser.
 
 ## Next Learning Goals
 
-- Connect the login form to controlled inputs.
+- Add stronger validation for email, phone, age, and password values.
+- Connect the form to a backend or persistence layer.
 - Move the user data into a dedicated data module or API.
 - Add search and filtering to the dashboard.
 - Improve accessibility with semantic landmarks and labels.
-- Add tests for login state and user list rendering.
+- Add tests for form validation and submitted-data rendering.
