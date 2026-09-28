@@ -13,7 +13,7 @@
 
 ## About the Project
 
-This project combines a personal introduction with a simple user dashboard. It is a practical space to learn React fundamentals, experiment with component structure, and see how state changes the interface.
+This project is a React learning dashboard with asynchronously loaded user profiles and a local image preview. It is a practical space to learn React fundamentals, experiment with component structure, and see how state and network requests change the interface.
 
 ## Learning Log
 
@@ -57,6 +57,16 @@ This project combines a personal introduction with a simple user dashboard. It i
 | Conditional rendering | Show an error message or submitted details only when needed. | The interface reflects the current form state. |
 | Form component structure | Keep registration behavior in `src/components/RegistrationForm.jsx`. | A focused component is easier to test and reuse. |
 
+### Day 5: Fetching data and image previews
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| `useEffect` | Fetch user profiles from JSONPlaceholder when `UserData` mounts. | Effects let components synchronize with external systems. |
+| Async data state | Track loading, error, and successful response states. | Users get useful feedback while a request is in progress or fails. |
+| API rendering | Display the fetched users with `.map()` and stable IDs. | External data can drive reusable, data-based UI. |
+| `useRef` and file inputs | Open a hidden image input from a custom button. | Refs can access DOM elements without triggering a render. |
+| Local image preview | Create a browser object URL for the selected image. | Users can preview a file before any server upload is implemented. |
+
 ## Concepts Demonstrated
 
 ```text
@@ -67,12 +77,13 @@ User action
 	-> conditional view / updated list
 ```
 
-- **State:** `isLoggedIn` controls the authentication view.
-- **Data:** the `users` array is the single source for dashboard cards.
-- **Composition:** `App` coordinates smaller UI components.
+- **Async state:** `UserData` renders loading, error, and fetched profile states.
+- **Effects:** `useEffect` requests profile data when the component mounts.
+- **Refs and browser APIs:** `ImageUpload` uses a ref to open the file picker and an object URL to preview the selected image.
+- **Composition:** `App` brings the user data and image upload components together.
 - **Declarative UI:** JSX describes what should appear for the current state.
 - **Separation of concerns:** JavaScript handles behavior while CSS handles presentation.
-- **Controlled forms:** `RegistrationForm` stores field values, validates submissions, and resets the form with React state.
+- **Earlier exercises:** the project also includes examples of controlled forms, counters, themes, and conditional rendering in `src/components/`.
 
 ## Tech Stack
 
@@ -104,9 +115,9 @@ Open the local URL printed by Vite in your browser.
 
 ## Next Learning Goals
 
-- Add stronger validation for email, phone, age, and password values.
-- Connect the form to a backend or persistence layer.
-- Move the user data into a dedicated data module or API.
-- Add search and filtering to the dashboard.
+- Revoke image object URLs when the preview changes or the component unmounts.
+- Add image type and file-size validation with accessible feedback.
+- Add search and filtering to the user list.
 - Improve accessibility with semantic landmarks and labels.
-- Add tests for form validation and submitted-data rendering.
+- Add tests for API loading, error handling, and image selection.
+- Connect image selection or registration to a backend when persistence is needed.
