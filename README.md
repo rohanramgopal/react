@@ -67,6 +67,15 @@ This project is a React learning dashboard with asynchronously loaded user profi
 | `useRef` and file inputs | Open a hidden image input from a custom button. | Refs can access DOM elements without triggering a render. |
 | Local image preview | Create a browser object URL for the selected image. | Users can preview a file before any server upload is implemented. |
 
+### Day 6: Shared state with Context and Reducer
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| `useReducer` | Manage the counter with `increment`, `decrement`, and `reset` actions. | A reducer keeps related state transitions together and predictable. |
+| `useContext` | Share the counter state and `dispatch` function through the `Pass` context. | Nested components can access shared state without passing props through every level. |
+| Component composition | Split the display and counter actions into `Counter`, `Increment`, `Decrement`, and `Reset`. | Each component has a focused role while working with shared state. |
+| State flow | Dispatch an action, return the next state from the reducer, and render the updated count. | The UI stays synchronized with a single source of truth. |
+
 ## Concepts Demonstrated
 
 ```text
