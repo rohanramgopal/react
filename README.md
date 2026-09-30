@@ -76,6 +76,16 @@ This project is a React learning dashboard with asynchronously loaded user profi
 | Component composition | Split the display and counter actions into `Counter`, `Increment`, `Decrement`, and `Reset`. | Each component has a focused role while working with shared state. |
 | State flow | Dispatch an action, return the next state from the reducer, and render the updated count. | The UI stays synchronized with a single source of truth. |
 
+### Day 7: Routing and module exports
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| Client-side routing | Wrap the app in `BrowserRouter` and map URL paths to page components with `Routes` and `Route`. | Users can navigate between views without a full page reload. |
+| Navigation links | Use `NavLink` for the main navigation and highlight the active route. | Navigation reflects the current page and remains easy to follow. |
+| Nested routes | Render service detail pages inside `Services` with child routes and `Outlet`. | Related pages can share a layout while displaying different nested content. |
+| Default exports | Match a component's `export default` with a default import, and check the actual module when an export error appears. | Import/export mismatches can prevent the app from loading even when the component code itself is valid. |
+| Build location | Run npm scripts from the project directory that contains `package.json`. | Running a build from the wrong directory makes npm look for the wrong project. |
+
 ## Concepts Demonstrated
 
 ```text
