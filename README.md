@@ -1,8 +1,8 @@
-# Rohan's React Learning Dashboard
+# Rohan's React Learning Project
 
 <div align="center">
 
-### A small React project for learning by building
+### A two-player XO game built while learning React
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
@@ -13,7 +13,7 @@
 
 ## About the Project
 
-This project is a React learning dashboard with asynchronously loaded user profiles and a local image preview. It is a practical space to learn React fundamentals, experiment with component structure, and see how state and network requests change the interface.
+This project is a collection of hands-on React exercises. The app currently opens to a two-player XO (tic-tac-toe) game: players take turns placing X and O on a 3-by-3 board, and the game detects winning rows, columns, and diagonals. Other exercises in the source include forms, counters, theme toggling, image previews, user data fetching, and routed page examples.
 
 ## Learning Log
 
@@ -86,6 +86,22 @@ This project is a React learning dashboard with asynchronously loaded user profi
 | Default exports | Match a component's `export default` with a default import, and check the actual module when an export error appears. | Import/export mismatches can prevent the app from loading even when the component code itself is valid. |
 | Build location | Run npm scripts from the project directory that contains `package.json`. | Running a build from the wrong directory makes npm look for the wrong project. |
 
+### Day 8: Building an XO game
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| Game state | Track the 3-by-3 board, current player, and winner with `useState`. | Related state determines what the game displays after every move. |
+| Click handling | Place the current player's mark in an empty square and ignore occupied squares. | Event handlers make the board respond to player input while enforcing game rules. |
+| Turn updates | Alternate between X and O after each valid move. | State transitions keep a two-player game moving predictably. |
+| Win detection | Check rows, columns, and diagonals for three matching marks. | A small set of winning patterns can determine the result after each move. |
+| Conditional status | Show whose turn it is or announce the winner. | The interface communicates the game's current state without a page reload. |
+
+## Current App: XO Game
+
+The active app is rendered from `src/App.jsx` and uses the `XOGame` component. Its board and turn are managed with React state; each move updates the board, checks the winning patterns, and updates the status shown above the board.
+
+The other components and pages are standalone learning exercises and are not currently composed into the active app.
+
 ## Concepts Demonstrated
 
 ```text
@@ -96,13 +112,13 @@ User action
 	-> conditional view / updated list
 ```
 
-- **Async state:** `UserData` renders loading, error, and fetched profile states.
-- **Effects:** `useEffect` requests profile data when the component mounts.
-- **Refs and browser APIs:** `ImageUpload` uses a ref to open the file picker and an object URL to preview the selected image.
-- **Composition:** `App` brings the user data and image upload components together.
+- **Game state:** `XOGame` tracks the board, current player, and winner with `useState`.
+- **Event handling:** Clicking a square updates the board and advances the turn when there is no winner.
+- **Conditional rendering:** The status switches between the current player's turn and the winner announcement.
+- **Win detection:** The game checks all rows, columns, and diagonals after each move.
+- **Other exercises:** Standalone components cover async user data, image previews, forms, counters, themes, and routed pages.
 - **Declarative UI:** JSX describes what should appear for the current state.
 - **Separation of concerns:** JavaScript handles behavior while CSS handles presentation.
-- **Earlier exercises:** the project also includes examples of controlled forms, counters, themes, and conditional rendering in `src/components/`.
 
 ## Tech Stack
 
