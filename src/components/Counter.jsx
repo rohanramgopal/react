@@ -1,47 +1,30 @@
-import { useState } from "react";
+import React, { useContext } from "react";
+import { Pass } from "../App";
+import Increment from "./Increment";
+import Decrement from "./Decrement";
+import Reset from "./Reset";
 
-export default function Counter({ dark }) {
+export default function Counter() {
+  const { state } = useContext(Pass);
 
-    const [count, setCount] = useState(0);
+  return (
+    <div className="counter-card">
 
-    return (
-        <div
-            className="counter-card"
-            style={{
-                backgroundColor: dark ? "#1f2937" : "#ffffff",
-                color: dark ? "#ffffff" : "#1e293b"
-            }}
-        >
-            <h2>Counter</h2>
+      <div className="counter-heading">
+        <h2>Counter</h2>
+        <p>State shared using Context</p>
+      </div>
 
-            <div className="count">
-                {count}
-            </div>
+      <div className="count">
+        {state.count}
+      </div>
 
-            <div className="buttons">
+      <div className="buttons">
+        <Increment />
+        <Decrement />
+        <Reset />
+      </div>
 
-                <button
-                    className="increment"
-                    onClick={() => setCount(count + 1)}
-                >
-                    Increment
-                </button>
-
-                <button
-                    className="decrement"
-                    onClick={() => setCount(count - 1)}
-                >
-                    Decrement
-                </button>
-
-                <button
-                    className="reset"
-                    onClick={() => setCount(0)}
-                >
-                    Reset
-                </button>
-
-            </div>
-        </div>
-    );
+    </div>
+  );
 }
