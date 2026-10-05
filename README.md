@@ -2,7 +2,7 @@
 
 <div align="center">
 
-### A two-player XO game built while learning React
+### A routed user directory built while learning React
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
@@ -13,7 +13,7 @@
 
 ## About the Project
 
-This project is a collection of hands-on React exercises. The app currently opens to a two-player XO (tic-tac-toe) game: players take turns placing X and O on a 3-by-3 board, and the game detects winning rows, columns, and diagonals. Other exercises in the source include forms, counters, theme toggling, image previews, user data fetching, and routed page examples.
+This project is a collection of hands-on React exercises. The active app loads a user directory from JSONPlaceholder and lets you open a detail page for each user. Other exercises in the source include a two-player XO (tic-tac-toe) game, forms, counters, theme toggling, image previews, and routed page examples.
 
 ## Learning Log
 
@@ -96,11 +96,21 @@ This project is a collection of hands-on React exercises. The app currently open
 | Win detection | Check rows, columns, and diagonals for three matching marks. | A small set of winning patterns can determine the result after each move. |
 | Conditional status | Show whose turn it is or announce the winner. | The interface communicates the game's current state without a page reload. |
 
-## Current App: XO Game
+### Day 9: Fetching users and dynamic routes
 
-The active app is rendered from `src/App.jsx` and uses the `XOGame` component. Its board and turn are managed with React state; each move updates the board, checks the winning patterns, and updates the status shown above the board.
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| Fetching API data | Load the user list from JSONPlaceholder in `UserList`. | A React view can render data provided by an external service. |
+| Effect lifecycle | Start the request when the user list mounts with `useEffect`. | Effects let a component synchronize with a network request. |
+| Route parameters | Read a user's ID with `useParams` on `/users/:id`. | One detail-page component can display different records based on the URL. |
+| Navigation | Link each user to their detail page with React Router. | Users can move between related views without a full page reload. |
+| Request states | Show loading feedback and a not-found view when a detail request fails. | The interface stays informative while data is loading or unavailable. |
 
-The other components and pages are standalone learning exercises and are not currently composed into the active app.
+## Current App: User Directory
+
+The active app is rendered from `src/App.jsx`. The home route (`/`) displays users fetched from JSONPlaceholder, and selecting a user opens `/users/:id` with that user's contact details. The detail view includes loading and not-found states.
+
+The XO game and the other components and pages are standalone learning exercises and are not currently composed into the active app.
 
 ## Concepts Demonstrated
 
@@ -112,11 +122,11 @@ User action
 	-> conditional view / updated list
 ```
 
-- **Game state:** `XOGame` tracks the board, current player, and winner with `useState`.
-- **Event handling:** Clicking a square updates the board and advances the turn when there is no winner.
-- **Conditional rendering:** The status switches between the current player's turn and the winner announcement.
-- **Win detection:** The game checks all rows, columns, and diagonals after each move.
-- **Other exercises:** Standalone components cover async user data, image previews, forms, counters, themes, and routed pages.
+- **Data fetching:** `UserList` and `UserDetails` load user records from JSONPlaceholder and render loading or error states.
+- **Client-side routing:** React Router connects the user list to parameterized user detail pages.
+- **Conditional rendering:** The app displays loading, error, and user data views based on request state.
+- **Game state:** The standalone `XOGame` exercise tracks the board, current player, and winner with `useState`.
+- **Other exercises:** Standalone components cover image previews, forms, counters, themes, and routed pages.
 - **Declarative UI:** JSX describes what should appear for the current state.
 - **Separation of concerns:** JavaScript handles behavior while CSS handles presentation.
 
@@ -138,6 +148,8 @@ npm run dev
 ```
 
 Open the local URL printed by Vite in your browser.
+
+The user list and detail pages fetch data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/), so those views require an internet connection.
 
 ## Available Scripts
 
