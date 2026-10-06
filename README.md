@@ -106,11 +106,20 @@ This project is a collection of hands-on React exercises. The active app loads a
 | Navigation | Link each user to their detail page with React Router. | Users can move between related views without a full page reload. |
 | Request states | Show loading feedback and a not-found view when a detail request fails. | The interface stays informative while data is loading or unavailable. |
 
+### Day 10: URL-driven pagination (October 6, 2026)
+
+| Concept | What I practiced | Why it matters |
+| --- | --- | --- |
+| Query parameters | Read and update the current page with React Router's `useSearchParams`. | Pagination state can be bookmarked, shared, and restored from the URL. |
+| Derived page data | Calculate page boundaries and render a slice of the user list. | The visible records stay synchronized with the selected page. |
+| Navigation boundaries | Disable Previous on the first page and Next on the last page. | Controls prevent navigation to pages that do not exist. |
+| Route composition | Render the pagination exercise at `/` and `/users`. | The same component can serve multiple routes without duplication. |
+
 ## Current App: User Directory
 
-The active app is rendered from `src/App.jsx`. The home route (`/`) displays users fetched from JSONPlaceholder, and selecting a user opens `/users/:id` with that user's contact details. The detail view includes loading and not-found states.
+The active app is rendered from `src/App.jsx`. The home route (`/`) and `/users` display a paginated list of 20 sample users, with five users per page. The selected page is stored in the URL query string (for example, `/?page=2`), so it can be linked to or restored on refresh.
 
-The XO game and the other components and pages are standalone learning exercises and are not currently composed into the active app.
+The API-backed user directory, XO game, and other components and pages remain standalone learning exercises and are not currently composed into the active app.
 
 ## Concepts Demonstrated
 
